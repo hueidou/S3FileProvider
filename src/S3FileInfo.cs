@@ -67,7 +67,7 @@ namespace Evorine.FileSystem.S3FileProvider
         /// <summary>
         /// A http url to the file, including the file name.
         /// </summary>
-        public string PhysicalPath => $"s3-{amazonS3.Config.RegionEndpoint.SystemName}.amazonaws.com/{getfileObject().BucketName}/{getfileObject().Key}";
+        public string PhysicalPath => $"/{getfileObject().BucketName}/{getfileObject().Key}";
 
         public string Name => Path.GetFileName(getfileObject().Key.TrimEnd('/'));
 
