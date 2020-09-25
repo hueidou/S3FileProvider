@@ -7,6 +7,7 @@ using System.Net;
 using Microsoft.Extensions.FileProviders;
 using Amazon.S3;
 using Amazon.S3.Model;
+using Amazon.S3.Util;
 
 namespace Evorine.FileSystem.S3FileProvider
 {
@@ -77,7 +78,7 @@ namespace Evorine.FileSystem.S3FileProvider
 
         public Stream CreateReadStream()
         {
-            return getfileObject().ResponseStream;
+            return AmazonS3Util.MakeStreamSeekable(getfileObject().ResponseStream);
         }
     }
 }
